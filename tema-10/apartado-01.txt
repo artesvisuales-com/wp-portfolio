@@ -1,0 +1,12 @@
+//crea el tema hijo
+
+@import url('../customizr/style.css');
+/*
+Theme Name: Portfolio personal: Customizr tema hijo
+Theme URI: http://
+Description: Customizr tema hijo, con tipos de entradas personalizadas
+Author: Instituto de Artes Visuales
+Version: 0.0.1
+Template: customizr
+Tags: two-columns, left-sidebar, custom-header, custom-colors, custom-background, custom-menu, theme-options, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style
+*/
