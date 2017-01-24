@@ -1,0 +1,53 @@
+      <aside class="widget">
+				<h3 class="widget-title">Últimos trabajos de Diseño Gráfico</h3>
+				<ul>  
+					<li class="entry">
+						<h3>
+							<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+						</h3>
+					</li>
+ 				</ul>
+			</aside>
+			 
+
+
+//muestra un bucle con las ultimas entradas de disenio grafico
+
+			<?php
+								$postslist = get_posts('numberposts=2&order=DESC&orderby=date&post_type=grafico');
+								foreach ($postslist as $post) :
+									setup_postdata($post);
+								?> 
+								<li class="entry">
+			                    	<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+			                    	<div class="entry-summary"><?php the_excerpt(); ?></div>
+								</li>
+		<?php endforeach; ?>
+		
+			
+
+//muestra un bucle con las ultimas entradas de disenio web
+
+		<?php
+							$postslist = get_posts('numberposts=2&order=DESC&orderby=date&post_type=web');
+							foreach ($postslist as $post) :
+								setup_postdata($post);
+							?> 
+							<li class="entry">
+		                    	<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							</li>
+		<?php endforeach; ?>    
+		
+						
+						
+//muestra un bucle con las ultimas entradas de disenio editorial
+
+	<?php
+						$postslist = get_posts('numberposts=2&order=DESC&orderby=date&post_type=editorial');
+						foreach ($postslist as $post) :
+							setup_postdata($post);
+						?> 
+						<li class="entry">
+	                    	<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+						</li>
+	<?php endforeach; ?>
