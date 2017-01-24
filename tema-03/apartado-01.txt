@@ -1,0 +1,70 @@
+//funciones para incluir entradas personalizadas 
+         
+
+//grafico
+
+add_action('init', 'portfolio_grafico_init');
+function portfolio_grafico_init() 
+{
+	$args = array(
+		'label' => __('Dise&ntilde;o Gr&aacute;fico'),
+		'singular_label' => __('Dise&ntilde;o Gr&aacute;fico'),
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true, 
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'menu_position' => null,
+		'supports' => array('title','editor','comments'),
+		'has_archive' => 'Dise&ntilde;o Gr&aacute;fico'
+	); 
+	register_post_type('grafico',$args);
+}
+
+
+//web
+
+add_action('init', 'portfolio_web_init');
+function portfolio_web_init() 
+{
+	$args = array(
+		'label' => __('Dise&ntilde;o Web'),
+		'singular_label' => __('Dise&ntilde;o Web'),
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true, 
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'menu_position' => null,
+		'supports' => array('title','editor','comments'),
+		'has_archive' => 'Dise&ntilde;os Webs'
+	); 
+	register_post_type('web',$args);
+}   
+
+
+//editorial
+
+add_action('init', 'portfolio_editorial_init');
+function portfolio_editorial_init() 
+{
+	$args = array(
+		'label' => __('Dise&ntilde;o Editorial'),
+		'singular_label' => __('Dise&ntilde;o Editorial'),
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true, 
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'menu_position' => null,
+		'supports' => array('title','editor','comments'),
+		'has_archive' => 'Dise&ntilde;os Editoriales'
+	); 
+	register_post_type('editorial',$args);
+}

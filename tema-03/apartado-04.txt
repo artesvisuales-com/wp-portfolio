@@ -1,0 +1,30 @@
+//insertar iconos personalizados
+
+add_action( 'admin_head', 'portfolio_icons' );
+function portfolio_icons() {
+?>
+	<style type="text/css" media="screen">
+		
+		/*iconos del menu grafico*/
+		#menu-posts-grafico .wp-menu-image {background:url("<?php bloginfo('url') ?>/wp-content/themes/images/ico_grafico_menu.png") no-repeat 6px -18px !important;}
+		#menu-posts-grafico:hover .wp-menu-image {background-position:6px 6px !important;}
+		#menu-posts-grafico .wp-has-current-submenu .wp-menu-image, #menu-posts-grafico:hover .wp-has-current-submenu .wp-menu-image {background-position:6px 6px !important;}
+		
+		/*iconos del menu web*/ 
+		#menu-posts-web .wp-menu-image {background:url("<?php bloginfo('url') ?>/wp-content/themes/images/ico_web_menu.png") no-repeat 6px -18px !important;}
+		#menu-posts-web:hover .wp-menu-image {background-position:6px 6px !important;}
+		#menu-posts-web .wp-has-current-submenu .wp-menu-image, #menu-posts-web:hover .wp-has-current-submenu .wp-menu-image {background-position:6px 6px !important;}
+		
+		/*iconos del menu editorial*/
+		#menu-posts-editorial .wp-menu-image {background:url("<?php bloginfo('url') ?>/wp-content/themes/images/ico_editorial_menu.png") no-repeat 6px -18px !important;}
+		#menu-posts-editorial:hover .wp-menu-image {background-position:6px 6px !important;}
+		#menu-posts-editorial .wp-has-current-submenu .wp-menu-image, #menu-posts-editorial:hover .wp-has-current-submenu .wp-menu-image {background-position:6px 6px !important;}
+		
+		/*iconos principales*/
+		.icon32-posts-grafico {background:url("<?php bloginfo('url') ?>/wp-content/themes/images/ico_grafico_principal.png") no-repeat -6px -6px !important;}
+		.icon32-posts-web {background:url("<?php bloginfo('url') ?>/wp-content/themes/images/ico_web_principal.png") no-repeat -6px -6px !important;}
+		.icon32-posts-editorial {background:url("<?php bloginfo('url') ?>/wp-content/themes/images/ico_editorial_principal.png") no-repeat -6px -6px !important;}
+		
+	</style> 
+		
+<?php }

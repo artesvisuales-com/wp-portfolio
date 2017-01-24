@@ -1,0 +1,142 @@
+*************************************************************************
+CODIGO FINAL DEL APARTADO "ORGANIZACION DEL MENU" EN "TIPOSDEENTRADA.PHP"
+*************************************************************************
+
+<?php
+add_action('init', 'portfolio_grafico_init');
+function portfolio_grafico_init() 
+{
+	$grafico_labels = array(
+	'name' => _x('Dise&ntilde;o Gr&aacute;fico', 'post type general name'),
+	'singular_name' => _x('Dise&ntilde;o Gr&aacute;fico', 'post type singular name'),
+	'all_items' => __('Todos los dise&ntilde;os gr&aacute;ficos'),
+	'add_new' => _x('A&ntilde;adir nuevo dise&ntilde;o gr&aacute;fico', 'grafico'),
+	'add_new_item' => __('A&ntilde;adir nuevo dise&ntilde;o gr&aacute;fico'),
+	'edit_item' => __('Editar dise&ntilde;o gr&aacute;fico'),
+	'new_item' => __('Nuevo dise&ntilde;o gr&aacute;fico'),
+	'view_item' => __('Ver dise&ntilde;o gr&aacute;fico'),
+	'search_items' => __('Buscar en Dise&ntilde;o Gr&aacute;fico'),
+	'not_found' =>  __('No se ha encontrado ning&uacute;n dise&ntilde;o gr&aacute;fico'),
+	'not_found_in_trash' => __('No se ha encontrado en la papelera ning&uacute;n dise&ntilde;o gr&aacute;fico'), 
+	'parent_item_colon' => ''	
+	); 
+		
+	$args = array(
+	'labels' => $grafico_labels,
+	'public' => true,
+	'publicly_queryable' => true,
+	'show_ui' => true, 
+	'query_var' => true,
+	'rewrite' => true,
+	'capability_type' => 'post',
+	'hierarchical' => false,
+	'menu_position' => 5,
+	'supports' => array('title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'),
+	'has_archive' => 'Dise&ntilde;o Gr&aacute;fico'
+	); 
+	register_post_type('grafico',$args);
+}
+
+//web
+
+add_action('init', 'portfolio_web_init');
+function portfolio_web_init() 
+{
+	$web_labels = array(
+	'name' => _x('Dise&ntilde;o Web', 'post type general name'),
+	'singular_name' => _x('Dise&ntilde;o Web', 'post type singular name'),
+	'all_items' => __('Todos los dise&ntilde;os Webs'),
+	'add_new' => _x('A&ntilde;adir nuevo dise&ntilde;o Web', 'web'),
+	'add_new_item' => __('A&ntilde;adir nuevo dise&ntilde;o Web'),
+	'edit_item' => __('Editar dise&ntilde;o Web'),
+	'new_item' => __('Nuevo dise&ntilde;o Web'),
+	'view_item' => __('Ver dise&ntilde;o Web'),
+	'search_items' => __('Buscar en Dise&ntilde;o Web'),
+	'not_found' =>  __('No se ha encontrado ning&uacute;n dise&ntilde;o Web'),
+	'not_found_in_trash' => __('No se ha encontrado en la papelera ning&uacute;n dise&ntilde;o Web'), 
+	'parent_item_colon' => ''	
+	); 
+	
+	$args = array(
+		'labels' => $web_labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true, 
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'menu_position' => 5,
+		'supports' => array('title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'),
+		'has_archive' => 'Dise&ntilde;os Webs'
+	); 
+	register_post_type('web',$args);
+}   
+
+add_action('init', 'portfolio_editorial_init');
+function portfolio_editorial_init() 
+{
+	$editorial_labels = array(
+	'name' => _x('Dise&ntilde;o Editorial', 'post type general name'),
+	'singular_name' => _x('Dise&ntilde;o Editorial', 'post type singular name'),
+	'all_items' => __('Todos los dise&ntilde;os Editoriales'),
+	'add_new' => _x('A&ntilde;adir nuevo dise&ntilde;o Editorial', 'editorial'),
+	'add_new_item' => __('A&ntilde;adir nuevo dise&ntilde;o Editorial'),
+	'edit_item' => __('Editar dise&ntilde;o Editorial'),
+	'new_item' => __('Nuevo dise&ntilde;o Editorial'),
+	'view_item' => __('Ver dise&ntilde;o Editorial'),
+	'search_items' => __('Buscar en Dise&ntilde;o Editorial'),
+	'not_found' =>  __('No se ha encontrado ning&uacute;n dise&ntilde;o Editorial'),
+	'not_found_in_trash' => __('No se ha encontrado en la papelera ning&uacute;n dise&ntilde;o Editorial'), 
+	'parent_item_colon' => ''	
+	);    
+	
+	$args = array(
+		'labels' => $editorial_labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true, 
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'menu_position' => 5,
+		'supports' => array('title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'),
+		'has_archive' => 'Dise&ntilde;os Editoriales'
+	); 
+	register_post_type('editorial',$args);
+}
+
+
+//insertar iconos personalizados
+
+add_action( 'admin_head', 'portfolio_icons' );
+function portfolio_icons() {
+?>
+	<style type="text/css" media="screen">
+		
+		/*iconos del menu grafico*/
+		#menu-posts-grafico .wp-menu-image {background:url("<?php bloginfo('url') ?>/wp-content/themes/images/ico_grafico_menu.png") no-repeat 6px -18px !important;}
+		#menu-posts-grafico:hover .wp-menu-image {background-position:6px 6px !important;}
+		#menu-posts-grafico .wp-has-current-submenu .wp-menu-image, #menu-posts-grafico:hover .wp-has-current-submenu .wp-menu-image {background-position:6px 6px !important;}
+		
+		/*iconos del menu web*/ 
+		#menu-posts-web .wp-menu-image {background:url("<?php bloginfo('url') ?>/wp-content/themes/images/ico_web_menu.png") no-repeat 6px -18px !important;}
+		#menu-posts-web:hover .wp-menu-image {background-position:6px 6px !important;}
+		#menu-posts-web .wp-has-current-submenu .wp-menu-image, #menu-posts-web:hover .wp-has-current-submenu .wp-menu-image {background-position:6px 6px !important;}
+		
+		/*iconos del menu editorial*/
+		#menu-posts-editorial .wp-menu-image {background:url("<?php bloginfo('url') ?>/wp-content/themes/images/ico_editorial_menu.png") no-repeat 6px -18px !important;}
+		#menu-posts-editorial:hover .wp-menu-image {background-position:6px 6px !important;}
+		#menu-posts-editorial .wp-has-current-submenu .wp-menu-image, #menu-posts-editorial:hover .wp-has-current-submenu .wp-menu-image {background-position:6px 6px !important;}
+		
+		/*iconos principales*/
+		.icon32-posts-grafico {background:url("<?php bloginfo('url') ?>/wp-content/themes/images/ico_grafico_principal.png") no-repeat -6px -6px !important;}
+		.icon32-posts-web {background:url("<?php bloginfo('url') ?>/wp-content/themes/images/ico_web_principal.png") no-repeat -6px -6px !important;}
+		.icon32-posts-editorial {background:url("<?php bloginfo('url') ?>/wp-content/themes/images/ico_editorial_principal.png") no-repeat -6px -6px !important;}
+		
+	</style> 
+		
+<?php }
+
+?>
