@@ -1,0 +1,30 @@
+//taxonomia no jerarquica
+
+	//tecnologia
+	$tecnologia_labels = array(
+		'name' => _x( 'Tecnolog&iacute;as', 'taxonomy general name' ),
+		'singular_name' => _x( 'Tecnolog&iacute;a', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Buscar Tecnolog&iacute;as' ),
+		'popular_items' => __( 'Tecnolog&iacute;as m&aacute;s usadas' ),
+		'all_items' => __( 'Todas las Tecnolog&iacute;as' ),
+		'most_used_items' => null,
+		'parent_item' => null,
+		'parent_item_colon' => null,
+		'edit_item' => __( 'Editar Tecnolog&iacute;a' ), 
+		'update_item' => __( 'Actualizar Tecnolog&iacute;a' ),
+		'add_new_item' => __( 'Añadir nueva Tecnolog&iacute;a' ),
+		'new_item_name' => __( 'Nuevo nombre de Tecnolog&iacute;a' ),
+		'separate_items_with_commas' => __( 'Separa las Tecnolog&iacute;a con comas' ),
+		'add_or_remove_items' => __( 'Añadir o eliminar Tecnolog&iacute;a' ),
+		'choose_from_most_used' => __( 'Elige entre las Tecnolog&iacute;as m&aacute;s usadas' ),
+		'menu_name' => __( 'Tecnolog&iacute;as' ),
+		);
+		
+		register_taxonomy('tecnologias',array('grafico','web','editorial'),array(
+			'hierarchical' => false,
+			'labels' => $tecnologia_labels,
+			'show_ui' => true,
+			'update_count_callback' => '_update_post_term_count',
+			'query_var' => true,
+			'rewrite' => array('slug' => 'tecnologia' )
+			));

@@ -1,0 +1,193 @@
+//crear taxonomias personalizadas
+add_action( 'init', 'portfolio_create_taxonomies', 0 );
+
+function portfolio_create_taxonomies() 
+{
+	//JERAQUICAS
+	
+	//cliente
+	$cliente_labels = array(
+		'name' => _x( 'Nombre de los Clientes', 'taxonomy general name' ),
+		'singular_name' => _x( 'Nombre del Cliente', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Buscar Cliente' ),
+		'all_items' => __( 'Todos los Clientes' ),
+		'most_used_items' => null,
+		'parent_item' => null,
+		'parent_item_colon' => null,
+		'edit_item' => __( 'Editar Cliente' ), 
+		'update_item' => __( 'Actualizar Cliente' ),
+		'add_new_item' => __( 'A&ntilde;adir nuevo Cliente' ),
+		'new_item_name' => __( 'Nuevo Cliente' ),
+		'menu_name' => __( 'Clientes' ),
+	);
+	register_taxonomy('cliente', array('grafico', 'web', 'editorial'), array(
+		'hierarchical' => true,
+		'labels' => $cliente_labels,		
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite' => array('slug' => 'cliente' )
+	));
+	
+	//fecha
+	$fecha_labels = array(
+		'name' => _x( 'Fechas', 'taxonomy general name' ),
+		'singular_name' => _x( 'Fechas', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Buscar Fecha' ),
+		'all_items' => __( 'Todos las Fechas' ),
+		'most_used_items' => null,
+		'parent_item' => null,
+		'parent_item_colon' => null,
+		'edit_item' => __( 'Editar Fecha' ), 
+		'update_item' => __( 'Actualizar Fecha' ),
+		'add_new_item' => __( 'A&ntilde;adir nueva Fecha' ),
+		'new_item_name' => __( 'Nuevo Fecha' ),
+		'menu_name' => __( 'Fechas' ),
+	);
+	register_taxonomy('fecha', array('grafico', 'web', 'editorial'), array(
+		'hierarchical' => true,
+		'labels' => $fecha_labels,		
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite' => array('slug' => 'fecha' )
+	));
+	
+	//tipologia
+	$tipologia_labels = array(
+		'name' => _x( 'Tipologias', 'taxonomy general name' ),
+		'singular_name' => _x( 'Tipologias', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Buscar Tipologia' ),
+		'all_items' => __( 'Todos las Tipologias' ),
+		'most_used_items' => null,
+		'parent_item' => null,
+		'parent_item_colon' => null,
+		'edit_item' => __( 'Editar Tipologia' ), 
+		'update_item' => __( 'Actualizar Tipologia' ),
+		'add_new_item' => __( 'A&ntilde;adir nueva Tipologia' ),
+		'new_item_name' => __( 'Nuevo Tipologia' ),
+		'menu_name' => __( 'Tipologias' ),
+	);
+	register_taxonomy('tipologia', array('grafico', 'web', 'editorial'), array(
+		'hierarchical' => true,
+		'labels' => $tipologia_labels,		
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite' => array('slug' => 'tipologia' )
+	));
+	
+	
+	
+	//NO JERAQUICAS
+	
+	//tecnologia
+	$tecnologia_labels = array(
+		'name' => _x( 'Tecnolog&iacute;as', 'taxonomy general name' ),
+		'singular_name' => _x( 'Tecnolog&iacute;a', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Buscar Tecnolog&iacute;as' ),
+		'popular_items' => __( 'Tecnolog&iacute;as m&aacute;s usadas' ),
+		'all_items' => __( 'Todas las Tecnolog&iacute;as' ),
+		'most_used_items' => null,
+		'parent_item' => null,
+		'parent_item_colon' => null,
+		'edit_item' => __( 'Editar Tecnolog&iacute;a' ), 
+		'update_item' => __( 'Actualizar Tecnolog&iacute;a' ),
+		'add_new_item' => __( 'A&ntilde;adir nueva Tecnolog&iacute;a' ),
+		'new_item_name' => __( 'Nuevo nombre de Tecnolog&iacute;a' ),
+		'separate_items_with_commas' => __( 'Separa las Tecnolog&iacute;a con comas' ),
+		'add_or_remove_items' => __( 'A&ntilde;adir o eliminar Tecnolog&iacute;a' ),
+		'choose_from_most_used' => __( 'Elige entre las Tecnolog&iacute;as m&aacute;s usadas' ),
+		'menu_name' => __( 'Tecnolog&iacute;as' ),
+	);
+	register_taxonomy('tecnologias',array('grafico','web','editorial'),array(
+		'hierarchical' => false,
+		'labels' => $tecnologia_labels,
+		'show_ui' => true,
+		'update_count_callback' => '_update_post_term_count',
+		'query_var' => true,
+		'rewrite' => array('slug' => 'tecnologia' )
+	));
+	
+	//nivel dificultad
+	$nivel_labels = array(
+		'name' => _x( 'Niveles de dificultad', 'taxonomy general name' ),
+		'singular_name' => _x( 'Nivel de dificultad', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Buscar Nivel de dificultad' ),
+		'popular_items' => __( 'Nivel de dificultad m&aacute;s usado' ),
+		'all_items' => __( 'Todos los Niveles de dificultad' ),
+		'most_used_items' => null,
+		'parent_item' => null,
+		'parent_item_colon' => null,
+		'edit_item' => __( 'Editar Nivel de dificultad' ), 
+		'update_item' => __( 'Actualizar Nivel de dificultad' ),
+		'add_new_item' => __( 'A&ntilde;adir nuevo Nivel de dificultad' ),
+		'new_item_name' => __( 'Nuevo nombre de Nivel de dificultad' ),
+		'separate_items_with_commas' => __( 'Separa los Niveles de dificultad con comas' ),
+		'add_or_remove_items' => __( 'A&ntilde;adir o eliminar Nivel de dificultad' ),
+		'choose_from_most_used' => __( 'Elige entre los Niveles de dificultad m&aacute;s usadas' ),
+		'menu_name' => __( 'Niveles de dificultad' ),
+	);
+	register_taxonomy('niveles','grafico',array(
+		'hierarchical' => false,
+		'labels' => $nivel_labels,
+		'show_ui' => true,
+		'update_count_callback' => '_update_post_term_count',
+		'query_var' => true,
+		'rewrite' => array('slug' => 'nivel-de-dificultad' )
+	));
+	
+	//caracteristica
+	$caracteristica_labels = array(
+		'name' => _x( 'Caracter&iacute;sticas', 'taxonomy general name' ),
+		'singular_name' => _x( 'Caracter&iacute;stica', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Buscar Caracter&iacute;sticas' ),
+		'popular_items' => __( 'Caracter&iacute;sticas m&aacute;s usadas' ),
+		'all_items' => __( 'Todas las Caracter&iacute;sticas' ),
+		'most_used_items' => null,
+		'parent_item' => null,
+		'parent_item_colon' => null,
+		'edit_item' => __( 'Editar Caracter&iacute;stica' ), 
+		'update_item' => __( 'Actualizar Caracter&iacute;stica' ),
+		'add_new_item' => __( 'A&ntilde;adir nueva Caracter&iacute;stica' ),
+		'new_item_name' => __( 'Nuevo nombre de Caracter&iacute;stica' ),
+		'separate_items_with_commas' => __( 'Separa las Caracter&iacute;sticas con comas' ),
+		'add_or_remove_items' => __( 'A&ntilde;adir o eliminar Caracter&iacute;stica' ),
+		'choose_from_most_used' => __( 'Elige entre las Caracter&iacute;sticas m&aacute;s usadas' ),
+		'menu_name' => __( 'Caracter&iacute;sticas' ),
+	);
+	register_taxonomy('caracteristicas','web',array(
+		'hierarchical' => false,
+		'labels' => $caracteristica_labels,
+		'show_ui' => true,
+		'update_count_callback' => '_update_post_term_count',
+		'query_var' => true,
+		'rewrite' => array('slug' => 'caracteristica' )
+	));
+	
+	//publico
+	$publico_labels = array(
+		'name' => _x( 'P&uacute;blico', 'taxonomy general name' ),
+		'singular_name' => _x( 'P&uacute;blico', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Buscar P&uacute;blico' ),
+		'popular_items' => __( 'P&uacute;blico m&aacute;s usado' ),
+		'all_items' => __( 'Todo el P&uacute;blico' ),
+		'most_used_items' => null,
+		'parent_item' => null,
+		'parent_item_colon' => null,
+		'edit_item' => __( 'Editar P&uacute;blico' ), 
+		'update_item' => __( 'Actualizar P&uacute;blico' ),
+		'add_new_item' => __( 'A&ntilde;adir nuevo P&uacute;blico' ),
+		'new_item_name' => __( 'Nuevo nombre de P&uacute;blico' ),
+		'separate_items_with_commas' => __( 'Separa el P&uacute;blico con comas' ),
+		'add_or_remove_items' => __( 'A&ntilde;adir o eliminar P&uacute;blico' ),
+		'choose_from_most_used' => __( 'Elige entre el P&uacute;blico m&aacute;s usadas' ),
+		'menu_name' => __( 'P&uacute;blico' ),
+	);
+	register_taxonomy('publico','editorial',array(
+		'hierarchical' => false,
+		'labels' => $publico_labels,
+		'show_ui' => true,
+		'update_count_callback' => '_update_post_term_count',
+		'query_var' => true,
+		'rewrite' => array('slug' => 'publico' )
+	));
+	    
+}

@@ -1,0 +1,52 @@
+//configuracion de mensajes en las taxonomias personalizadas
+
+	$cliente_labels = array(
+		'name' => _x( 'Nombre de los Clientes', 'taxonomy general name' ),
+		'singular_name' => _x( 'Nombre del Cliente', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Buscar cliente' ),
+		'all_items' => __( 'Todos los clientes' ),
+		'most_used_items' => null,
+		'parent_item' => null,
+		'parent_item_colon' => null,
+		'edit_item' => __( 'Editar Cliente' ), 
+		'update_item' => __( 'Actualizar Cliente' ),
+		'add_new_item' => __( 'A&ntilde;adir nuevo Cliente' ),
+		'new_item_name' => __( 'Nuevo Cliente' ),
+		'menu_name' => __( 'Cliente' ),
+	);
+	
+ 
+ 
+********************************************************************
+FUNCION COMPLETA "CONFIGURACION DE MENSAJES" EN "TIPOSDEENTRADA.PHP"
+********************************************************************
+
+//crear taxonomias personalizadas
+add_action( 'init', 'portfolio_create_taxonomies', 0 );
+
+function portfolio_create_taxonomies() 
+{
+	//cliente
+	$cliente_labels = array(
+		'name' => _x( 'Nombre de los Clientes', 'taxonomy general name' ),
+		'singular_name' => _x( 'Nombre del Cliente', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Buscar cliente' ),
+		'all_items' => __( 'Todos los clientes' ),
+		'most_used_items' => null,
+		'parent_item' => null,
+		'parent_item_colon' => null,
+		'edit_item' => __( 'Editar Cliente' ), 
+		'update_item' => __( 'Actualizar Cliente' ),
+		'add_new_item' => __( 'A&ntilde;adir nuevo Cliente' ),
+		'new_item_name' => __( 'Nuevo Cliente' ),
+		'menu_name' => __( 'Cliente' ),
+	); 
+
+	register_taxonomy('cliente', array('grafico', 'web', 'editorial'), array(
+		'hierarchical' => true,
+		'labels' => $cliente_labels,		
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite' => array('slug' => 'cliente' )
+	));
+}
