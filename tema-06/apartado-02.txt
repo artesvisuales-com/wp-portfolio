@@ -1,0 +1,52 @@
+//taxonomias personalizadas
+
+	<div class="taxonomias-personalizadas">
+		<div>Cliente: <?php echo get_the_term_list( $post->ID, 'cliente', '', ', ', '' ); ?></div>
+		<div>Fecha de realización: <?php echo get_the_term_list( $post->ID, 'fecha', '', ', ', '' ); ?></div>
+		<div>Tipolog&iacute;a: <?php echo get_the_term_list( $post->ID, 'tipologia', '', ', ', '' ); ?></div>    
+  	<div>Tecnolog&iacute;as: <?php echo get_the_term_list( $post->ID, 'tecnologias', '', ', ', '' ); ?></div>
+		<div>Nivel de dificultad: <?php echo get_the_term_list( $post->ID, 'niveles', '', ', ', '' ); ?></div>    
+	</div>
+
+
+//estilos de las taxonomias
+
+div.taxonomias-personalizadas {
+	border:1px solid #ccc;
+	border-radius:0.5em;
+	-moz-border-radius:0.5em;
+	-webkit-border-radius:0.5em;
+	margin:0.5em 0;
+	padding:15px 20px 5px 20px;
+	background: linear-gradient(top, #dddddd, #f1f1f1);
+	background: -moz-linear-gradient(top, #dddddd, #f1f1f1);
+	background: -webkit-linear-gradient(top, #dddddd, #f1f1f1);
+	background: -o-linear-gradient(top, #dddddd, #f1f1f1);
+	background: -ms-linear-gradient(top, #dddddd, #f1f1f1);
+	color:#333333;
+	text-shadow:1px 1px 0 #f1f1f1;
+}
+div.taxonomias-personalizadas div {
+	margin-bottom:10px;
+}
+
+
+//condicionales
+
+	<div class="taxonomias-personalizadas">
+		<?php if (get_the_term_list( $post->ID, 'cliente' ) != null ) { ?>
+			<div>Cliente: <?php echo get_the_term_list( $post->ID, 'cliente', '', ', ', '' ); ?></div>
+		<?php } ?>
+		<?php if (get_the_term_list( $post->ID, 'fecha' ) != null ) { ?>
+			<div>Fecha de realización: <?php echo get_the_term_list( $post->ID, 'fecha', '', ', ', '' ); ?></div>
+		<?php } ?>
+		<?php if (get_the_term_list( $post->ID, 'tipologia' ) != null ) { ?>
+			<div>Tipolog&iacute;a: <?php echo get_the_term_list( $post->ID, 'tipologia', '', ', ', '' ); ?></div>
+		<?php } ?>
+		<?php if (get_the_term_list( $post->ID, 'tecnologias' ) != null ) { ?>   
+  		<div>Tecnolog&iacute;as: <?php echo get_the_term_list( $post->ID, 'tecnologias', '', ', ', '' ); ?></div>
+		<?php } ?>
+		<?php if (get_the_term_list( $post->ID, 'niveles' ) != null ) { ?>
+			<div>Nivel de dificultad: <?php echo get_the_term_list( $post->ID, 'niveles', '', ', ', '' ); ?></div>
+		<?php } ?>   
+	</div>

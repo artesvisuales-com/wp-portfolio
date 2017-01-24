@@ -1,0 +1,68 @@
+//taxonomia caracteristicas
+
+		<?php if (get_the_term_list( $post->ID, 'caracteristicas' ) != null ) { ?>
+			<div>Características: <?php echo get_the_term_list( $post->ID, 'caracteristicas', '', ', ', '' ); ?></div>
+		<?php } ?>
+
+
+//taxonomia publico
+
+		<?php if (get_the_term_list( $post->ID, 'publico' ) != null ) { ?>
+			<div>Público: <?php echo get_the_term_list( $post->ID, 'publico', '', ', ', '' ); ?></div>
+		<?php } ?>
+		
+
+		//llamada al archivo "content-plantillas.php"
+
+		<?php
+		get_template_part('content-plantillas');
+		?>
+
+
+//taxonomia grafico
+
+				<?php if (get_post_type() == grafico) { ?>
+				<div class="taxonomias-personalizadas">
+					<?php if (get_the_term_list( $post->ID, 'cliente' ) != null ) { ?>
+							<div>Cliente: <?php echo get_the_term_list( $post->ID, 'cliente', '', ', ', '' ); ?></div>
+					<?php } ?>
+				  <?php if (get_the_term_list( $post->ID, 'fecha' ) != null ) { ?>
+				      <div>Fecha de realización: <?php echo get_the_term_list( $post->ID, 'fecha', '', ', ', '' ); ?></div>
+				  <?php } ?>
+				  <?php if (get_the_term_list( $post->ID, 'tipologia' ) != null ) { ?>
+				      <div>Tipolog&iacute;a: <?php echo get_the_term_list( $post->ID, 'tipologia', '', ', ', '' ); ?></div>
+				  <?php } ?>
+				  <?php if (get_the_term_list( $post->ID, 'tecnologias' ) != null ) { ?>   
+				      <div>Tecnolog&iacute;as: <?php echo get_the_term_list( $post->ID, 'tecnologias', '', ', ', '' ); ?></div>
+				  <?php } ?>
+				  <?php if (get_the_term_list( $post->ID, 'niveles' ) != null ) { ?>
+				      <div>Nivel de dificultad: <?php echo get_the_term_list( $post->ID, 'niveles', '', ', ', '' ); ?></div>
+				  <?php } ?>    
+				</div>
+				<?php } ?> 
+
+
+//taxonomia web - editorial
+
+				<?php if ( (get_post_type() == web) || (get_post_type() == editorial) ) { ?>
+				<div class="taxonomias-personalizadas">
+					<?php if (get_the_term_list( $post->ID, 'cliente' ) != null ) { ?>
+						<div>Cliente: <?php echo get_the_term_list( $post->ID, 'cliente', '', ', ', '' ); ?></div>
+					<?php } ?>
+					<?php if (get_the_term_list( $post->ID, 'fecha' ) != null ) { ?>
+						<div>Fecha de realización: <?php echo get_the_term_list( $post->ID, 'fecha', '', ', ', '' ); ?></div>
+					<?php } ?>
+					<?php if (get_the_term_list( $post->ID, 'tipologia' ) != null ) { ?>
+						<div>Tipolog&iacute;a: <?php echo get_the_term_list( $post->ID, 'tipologia', '', ', ', '' ); ?></div>
+					<?php } ?>
+					<?php if (get_the_term_list( $post->ID, 'tecnologias' ) != null ) { ?>   
+				  	<div>Tecnolog&iacute;as: <?php echo get_the_term_list( $post->ID, 'tecnologias', '', ', ', '' ); ?></div>
+					<?php } ?>
+					<?php if (get_the_term_list( $post->ID, 'caracteristicas' ) != null ) { ?>
+						<div>Características: <?php echo get_the_term_list( $post->ID, 'caracteristicas', '', ', ', '' ); ?></div>
+					<?php } ?>
+					<?php if (get_the_term_list( $post->ID, 'publico' ) != null ) { ?>
+						<div>Público: <?php echo get_the_term_list( $post->ID, 'publico', '', ', ', '' ); ?></div>
+					<?php } ?>    
+			 </div>
+			 <?php } ?>
